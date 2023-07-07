@@ -9,7 +9,7 @@ from autogpt.prompts.generator import PromptGenerator
 from autogpt.setup import prompt_user
 from autogpt.utils import clean_input
 
-DEFAULT_TRIGGERING_PROMPT = "Determine exactly one command to use, and respond using the JSON schema specified previously:"
+DEFAULT_TRIGGERING_PROMPT = "Determine exactly one command to use, and respond using ONLY the JSON schema specified previously:"
 
 
 def build_default_prompt_generator(config: Config) -> PromptGenerator:
