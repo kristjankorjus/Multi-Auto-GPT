@@ -18,6 +18,8 @@ from ..providers.openai import (
 )
 from .token_counter import *
 
+from pprint import pprint
+
 
 def call_ai_function(
     function: str,
@@ -148,10 +150,22 @@ def create_chat_completion(
         ]
         logger.debug(f"Function dicts: {chat_completion_kwargs['functions']}")
 
+    print()
+    print("#PROMT:")
+    pprint(prompt.raw())
+    print()
+    print("#Settings:")
+    print(chat_completion_kwargs)
+    print()
     response = iopenai.create_chat_completion(
         messages=prompt.raw(),
         **chat_completion_kwargs,
     )
+
+    print('#ANSER:')
+    print(response)
+    print()
+
     logger.debug(f"Response: {response}")
 
     if hasattr(response, "error"):
